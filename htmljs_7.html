@@ -106,7 +106,7 @@ console.log (infoPatient);
 */
 
 var person = {
-    "SNILS 1":["Клокова ", "Елена ", "Владимировна ", 12, "Января ", 2006 , "ж ", "Медотвод"],
+    "SNILS 1":[" Клокова", " Елена", " Владимировна", 12, " Января", 2006 , " ж", "Медотвод"],
     "SNILS 2":["Иванов ", "Сергей ", "Сергеевич ", 12 , "Октября ", 2005 , "м ", "Исполнено"],
     "SNILS 3":["Дивин ", "Артем ", "Викторович ", 4 , "Сентября ", 2005 , "м ", "Назначено"],
 };
@@ -160,17 +160,49 @@ console.log(person);*/
 
 
 let SNILS;
-SNILS=prompt("Введите СНИЛС пациента", SNILS);
-infoname=person[SNILS];
-console.log(infoname);
-alert("Информация о пациенте"+infoname);
+var FirstFunction = function (person,SNILS) {
+SNILS = prompt("Введите СНИЛС пациента", SNILS);
+infoname = person[SNILS];
+//console.log(infoname);
+alert("Информация o пациенте"+ infoname);
+};
 
+statuspriv=person[SNILS];
+console.log(statuspriv);
 /*let phase;
 phase=prompt("Введите действие или медотвод или назначено или исполнено", phase)
 infoname.push(phase)
 console.log(infoname);
 person[SNILS]=infoname;
 console.log(person); */
+
+var SecondFunction = function (statuspriv, infoname){
+//statuspriv = person[SNILS];
+
+if (statuspriv === "Исполнено") {
+alert ("Отказано в прививке пациенту" + infoname);
+} else if (statuspriv === "Медотвод" ) {
+alert("Отказано в прививке пациенту" + infoname);
+} else { 
+alert("Исполнить прививку пациенту" + infoname);
+}
+}
+
+ForSecond = FirstFunction(person, SNILS);
+SecondFunction(statuspriv, infoname);
+
+while (confirm("Продолжить проверку прививочного статуса?")) {
+ForSecond = FirstFunction(person, SNILS);
+SecondFunction(statuspriv, infoname);
+}
+console.log("Сеанс проверки прививочного статуса закончен");
+
+
+
+
+
+
+
 </script>
 </body>
 
